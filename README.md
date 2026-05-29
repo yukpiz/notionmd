@@ -242,6 +242,7 @@ func main() {
 - Unordered Lists
 - Code Blocks
 - Links
+- Tables
 
 ## Testing
 
