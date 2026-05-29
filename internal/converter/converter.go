@@ -28,6 +28,14 @@ func Convert(markdown string) ([]notion.Block, error) {
 			return ast.GoToNext
 		}
 
+		if isTable(node) {
+			table := convertTable(node.(*ast.Table))
+			if table != nil {
+				blocks = append(blocks, table)
+			}
+			return ast.SkipChildren
+		}
+
 		if isList(node) {
 			list := convertList(node.(*ast.List))
 			blocks = append(blocks, list...)
